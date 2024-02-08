@@ -42,13 +42,14 @@ public class Team {
 	// -> Los objetos tendrán la opción de devolver si existe un jugador pasado por
 	// parámetro.
 
-	public String returnPlayerIfExists(String player) {
+	public boolean returnPlayerIfExists(String player) {
+		boolean result = false;
 		for (int i = 0; i < this.players.length; i++) {
 			if (this.players[i].equalsIgnoreCase(player)) {
-				player = this.players[i];
+				result = true;
 			}
 		}
-		return player;
+		return result;
 	}
 
 	// -> Los objetos tendrán la opción de devolver el numero de jugadores que
