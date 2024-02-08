@@ -61,7 +61,7 @@ public class Team {
 	// tienen es apto para jugar. Un equipo es apto para jugar si tiene al menos 7
 	// jugadores.
 	
-	
+	// ----->>>> Cambio hecho desde GitHub browser
 	
 	
 	
