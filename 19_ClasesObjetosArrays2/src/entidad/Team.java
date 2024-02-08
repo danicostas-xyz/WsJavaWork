@@ -52,23 +52,27 @@ public class Team {
 	}
 
 	// -> Los objetos tendrán la opción de devolver el numero de jugadores que tienen.
-	
-	
-	
-	
-	
+
+
+	public int returnNumberOfPlayers() {
+	    return this.players.length;
+}
+    
 	// -> Los objetos tendrán la opción de devolver si el número de jugadores que
 	// tienen es apto para jugar. Un equipo es apto para jugar si tiene al menos 7
 	// jugadores.
-	
-	// ----->>>> Cambio hecho desde GitHub browser
-	
-	
+    
+    public boolean returnIfPlayable() {
+        return (this.players.length >= 7) ? true : false;
+    }
 	
 	// -> Los objetos tendrán la opción de devolver si una lista de jugadores pasada
 	// por parámetro es exactamente igual a su lista de jugadores
 	
-	
+	public boolean returnIfSamePlayers(String[] playerList) {
+	    
+	    return false;
+	}
 	
 	
 	
