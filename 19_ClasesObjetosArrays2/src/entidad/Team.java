@@ -97,10 +97,8 @@ public class Team {
 
 		boolean result = false;
 
-		if (team.name == this.name) {
-			if (this.returnIfSamePlayers(team.players)) {
-				result = true;
-			}
+		if (team.name.equals(this.name) && this.returnIfSamePlayers(team.players)) {
+			result = true;
 		}
 
 		return result;

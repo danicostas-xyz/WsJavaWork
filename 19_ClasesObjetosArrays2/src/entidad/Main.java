@@ -45,18 +45,16 @@ public class Main {
 					(teamList[i].returnPlayerIfExists(userPlayer)) ? userPlayer + " existe en " + teamList[i].name
 							: " no existe en " + teamList[i].name);
 			System.out.println("----------------");
-			
-			
 
 		}
-		
-		System.out.println((teamList[0].returnIfSamePlayers(teamList[1].players) 
-				? teamList[0].name + " tiene los mismos jugadores que " + teamList[1].name 
-						: teamList[0].name + " no tiene los mismos jugadores que " + teamList[1].name));
-		
-		System.out.println((teamList[0].returnIfSameTeam(teamList[1]) 
-				? teamList[0].name + " es el mismo equipo que " + teamList[1].name 
-						: teamList[0].name + " no es el mismo equipo que " + teamList[1].name));
+
+		System.out.println((teamList[0].returnIfSamePlayers(teamList[1].players)
+				? teamList[0].name + " tiene los mismos jugadores que " + teamList[1].name
+				: teamList[0].name + " no tiene los mismos jugadores que " + teamList[1].name));
+
+		System.out.println((teamList[0].returnIfSameTeam(teamList[1])
+				? teamList[0].name + " es el mismo equipo que " + teamList[1].name
+				: teamList[0].name + " no es el mismo equipo que " + teamList[1].name));
 
 	}
 
