@@ -20,7 +20,8 @@ public class Worker {
 	// toString())
 	@Override
 	public String toString() {
-		return "Trabajador [nombre=" + name + ", dni=" + dni + ", salario=" + salary + "]";
+		return "Trabajador [nombre=" + name + ", dni=" + dni 
+				+ ", salario=" + salary + "]";
 	}
 
 	// 2. Tendrán la opción de devolver si un DNI es valido. Se puede hacer que
@@ -57,7 +58,8 @@ public class Worker {
 	public boolean returnIfSameWorker(Worker worker) {
 		boolean result = false;
 
-		if (this.name.equals(worker.name) && this.dni.equals(worker.dni) && this.salary == worker.salary) {
+		if (this.name.equals(worker.name) && this.dni.equals(worker.dni) 
+				&& this.salary == worker.salary) {
 			result = true;
 		}
 
