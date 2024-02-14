@@ -1,19 +1,19 @@
 import java.util.Arrays;
 
-public class Empresa {
-	String nombre;
+public class Company {
+	String name;
 	String nif;
-	Trabajador[] trabajadores;
+	Worker[] workers;
 
-	public Empresa() {
+	public Company() {
 		super();
 	}
 
-	public Empresa(String nombre, String nif, Trabajador[] trabajadores) {
+	public Company(String name, String nif, Worker[] workers) {
 		super();
-		this.nombre = nombre;
+		this.name = name;
 		this.nif = nif;
-		this.trabajadores = trabajadores;
+		this.workers = workers;
 	}
 
 	// 1. Tendrán la opción de mostrar todos sus datos por pantalla (mediante el método
@@ -21,7 +21,7 @@ public class Empresa {
 
 	@Override
 	public String toString() {
-		return "Empresa [nombre=" + nombre + ", nif=" + nif + ", trabajadores=" + Arrays.toString(trabajadores) + "]";
+		return "Empresa [nombre=" + name + ", nif=" + nif + ", trabajadores=" + Arrays.toString(workers) + "]";
 	}
 
 	// 2. Tendrán la opción de mostrar todos los datos de sus trabajadores.
