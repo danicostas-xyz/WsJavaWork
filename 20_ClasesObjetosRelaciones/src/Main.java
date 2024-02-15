@@ -20,8 +20,8 @@ public class Main {
 
 		// Creamos empresa Upgrade Hub
 		Company upgradeHub = new Company("Upgrade Hub", "B88134622", new Worker[3]);
-		upgradeHub.workers[0] = new Worker("Piero Santana", "87309892F", 4587.36);
-		upgradeHub.workers[1] = new Worker("Guillermo Magro", "09345768R", 1040.95);
+		upgradeHub.workers[0] = new Worker("Piero Santana", "8739892F", 4587.36);
+		upgradeHub.workers[1] = new Worker("Guillermo Magro", "09345768R", 9040.95);
 		upgradeHub.workers[2] = new Worker("Carlos Gómez", "09765432W", 1200.35);
 
 		// Creamos array de Empresas y asociamos a sus dos posiciones las empresas
@@ -32,8 +32,38 @@ public class Main {
 
 		// Invocamos los métodos de los objetos con un bucle que itera el array de
 		// empresas arrayCompanies
-		
-		
+		for (Company company : arrayCompanies) {
+			System.out.println("--------- [" + company.name.toUpperCase() + "] ---------");
+
+			// Bucle para iterar a los trabajadores de cada compañía para invocar los
+			// métodos de la clase Worker
+			for (Worker worker : company.workers) {
+				// Usamos método returnIfDniValid de la clase Worker
+				String result = "no válido";
+				if (worker.returnIfDniValid()) {
+					result = "válido";
+				}
+
+				System.out.print("- " + worker.name + ", de la empresa " + company.name + ", con DNI " + worker.dni
+						+ ", tiene un DNI " + result + ".");
+
+				System.out.println(" ---> (" + worker + ")");
+
+			} // Fin del for que recorre el array de Workers
+
+			System.out.println("---------------");
+			
+			System.out.println((company.workers[0].returnIfMoreSalary(company.workers[1])) 
+					? company.workers[0].name + " gana más que " + company.workers[1].name 
+					: company.workers[0].name + " gana menos que " + company.workers[1].name);
+			
+			System.out.println("---------------");
+			
+			System.out.println((company.workers[0].returnIfSameWorker(company.workers[0]))
+					? company.workers[0].name + " es el mismo empleado que " + company.workers[0].name
+					: company.workers[0].name + " no es el mismo empleado que " + company.workers[0].name);
+
+		} // Fin del for que recorre el arrayCompanies
 
 	}
 
