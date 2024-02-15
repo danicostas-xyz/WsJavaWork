@@ -30,40 +30,40 @@ public class Worker {
 	// última letra del DNI.
 
 	public boolean returnIfDniValid() {
-		boolean result = false;
+		boolean flag = false;
 
 		if (this.dni.length() == 9) {
-			result = true;
+			flag = true;
 		}
 
-		return result;
+		return flag;
 	}
 
 	// 3. Los objetos tendrán la opción de devolver si un trabajador gana más que
 	// otro trabajador pasado por parámetro.
 
 	public boolean returnIfMoreSalary(Worker worker) {
-		boolean result = false;
+		boolean flag = false;
 
 		if (this.salary > worker.salary) {
-			result = true;
+			flag = true;
 		}
 
-		return result;
+		return flag;
 	}
 
 	// 4. Tendrán la opción de devolver si un trabajador es igual a otro. Un
 	// trabajador es exactamente igual a otro si tiene todos sus atributos iguales.
 
 	public boolean returnIfSameWorker(Worker worker) {
-		boolean result = false;
+		boolean flag = false;
 
 		if (this.name.equals(worker.name) && this.dni.equals(worker.dni) 
 				&& this.salary == worker.salary) {
-			result = true;
+			flag = true;
 		}
 
-		return result;
+		return flag;
 	}
 
 }
