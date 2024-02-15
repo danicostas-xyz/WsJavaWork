@@ -22,12 +22,11 @@ public class Company {
 
 	@Override
 	public String toString() {
-		return "Empresa [nombre=" + name + ", nif=" + nif 
-				+ ", trabajadores=" + Arrays.toString(workers) + "]";
+		return "Empresa [nombre=" + name + ", nif=" + nif + ", trabajadores=" + Arrays.toString(workers) + "]";
 	}
 
 	// 2. Tendrán la opción de mostrar todos los datos de sus trabajadores.
-	
+
 	public void printWorkers() {
 		for (Worker worker : this.workers) {
 			System.out.println(worker);
@@ -36,22 +35,22 @@ public class Company {
 
 	// 3. Tendrán la opción de saber si existe un trabajador en la empresa,
 	// pasándole un DNI por parámetro.
-	
+
 	public boolean returnIfWorkerExists(String dni) {
 		boolean flag = false;
-		
+
 		for (Worker worker : this.workers) {
 			if (worker.dni.equals(dni)) {
 				flag = true;
 				break;
 			}
 		}
-		
+
 		return flag;
 	}
 
 	// 4. Tendrán la opción de devolver el numero de trabajadores que tienen.
-	
+
 	public int returnNumberOfWorkers() {
 		if (this.workers != null) {
 			return workers.length;
@@ -62,41 +61,89 @@ public class Company {
 
 	// 5. Tendrán la opción de devolver el salario total que se gasta en sus
 	// trabajadores.
-	
+
 	public double returnWorkersTotalSalary() {
 		double totalSalary = 0;
-		
+
 		for (Worker worker : this.workers) {
 			totalSalary += worker.salary;
 		}
-		
+
 		return totalSalary;
 	}
 
-	// 6. Tendrán la opción de devolver cuantos trabajadores ganan más de 3000€.
+	// 6. Tendrán la opción de devolver cuantos trabajadores ganan más de 3000.00€.
 
 	public int returnNumberOfWorkersAbove3000() {
 		int counter = 0;
-		
+
 		for (Worker worker : this.workers) {
 			if (worker.salary > 3000) {
 				counter++;
 			}
 		}
-		
+
 		return counter;
 	}
-	
-	// 7. Tendrán la opción de devolver cuantos trabajadores ganan menos del SMI.
+
+	// 7. Tendrán la opción de devolver cuantos trabajadores ganan menos del SMI
+	// (1323.00€ en 12 pagas)
+
+	public int returnNumberOfWorkersBelowSMI() {
+		int counter = 0;
+
+		for (Worker worker : this.workers) {
+			if (worker.salary < 1323) {
+				counter++;
+			}
+		}
+
+		return counter;
+	}
 
 	// 8. Tendrán la opción de devolver cuantos trabajadores ganan más que una
 	// cantidad pasada por parámetro.
 
+	public int returnNumberOfWorkersAboveXSalary(double money) {
+		int counter = 0;
+
+		for (Worker worker : this.workers) {
+			if (worker.salary > money) {
+				counter++;
+			}
+		}
+
+		return counter;
+	}
+
 	// 9. Tendrán la opción de devolver si todos los trabajadores tienen un DNI
 	// valido.
+
+	public boolean returnIfAllWorkersHaveValidDni() {
+		boolean flag = true;
+
+		for (Worker worker : this.workers) {
+			if (!worker.returnIfDniValid()) {
+				flag = false;
+				break;
+			}
+		}
+
+		return flag;
+	}
 
 	// 10.Tendrán la opción de devolver si una empresa pasada por parámetro es
 	// exactamente igual a la misma. Un empresa es exactamente igual si tiene el
 	// mismo nombre y el mismo NIF
+
+	public boolean returnIfSameCompany(Company company) {
+		boolean flag = false;
+
+		if (this.name.equals(company.name) && this.nif.equals(company.nif)) {
+			flag = true;
+		}
+
+		return flag;
+	}
 
 }
