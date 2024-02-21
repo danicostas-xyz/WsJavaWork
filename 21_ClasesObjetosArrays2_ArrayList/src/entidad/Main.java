@@ -1,5 +1,6 @@
 package entidad;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -11,50 +12,52 @@ public class Main {
 		Team equipo1 = new Team();
 		Team equipo2 = new Team();
 
-		// Creamos el array de equipos
-		Team[] teamList = { equipo1, equipo2 };
+		// Creamos el arrayList de equipos
+		ArrayList<Team> teamList = new ArrayList<Team>();
+		teamList.add(equipo1);
+		teamList.add(equipo2);
 
 		// Invocamos askData para darle datos a los equipos de las posiciones del array
-		askData(sc, teamList[0]);
-		askData(sc, teamList[1]);
+		askData(sc, teamList.get(0));
+		askData(sc, teamList.get(1));
 
 		// Bucle para recorrer teamList para invocar los métodos de los equipos
 
-		for (int i = 0; i < teamList.length; i++) {
-			System.out.println(teamList[i]);
+		for (int i = 0; i < teamList.size(); i++) {
+			System.out.println(teamList.get(i));
 			System.out.println("----------------");
 
 			System.out.println("JUGADORES: ");
-			teamList[i].printPlayers();
+			teamList.get(i).printPlayers();
 			System.out.println("----------------");
 
 			System.out.print("NÚMERO DE JUGADORES: ");
-			System.out.println(teamList[i].returnNumberOfPlayers());
+			System.out.println(teamList.get(i).returnNumberOfPlayers());
 			System.out.println("----------------");
 
 			System.out.println(
-					(teamList[i].returnIfPlayable()) ? "El equipo es apto para jugar porque tiene al menos 7 jugadores"
+					(teamList.get(i).returnIfPlayable()) ? "El equipo es apto para jugar porque tiene al menos 7 jugadores"
 							: "El equipo no es apto para jugar porque no tiene al menos 7 jugadores");
 			System.out.println("----------------");
 
 			System.out.print(
-					"Introduce el nombre de un jugador para comprobar si está en el equipo " + teamList[i].name + ": ");
+					"Introduce el nombre de un jugador para comprobar si está en el equipo " + teamList.get(i).name + ": ");
 
 			String userPlayer = sc.nextLine();
 			System.out.println(
-					(teamList[i].returnPlayerIfExists(userPlayer)) ? userPlayer + " existe en " + teamList[i].name
-							: " no existe en " + teamList[i].name);
+					(teamList.get(i).returnPlayerIfExists(userPlayer)) ? userPlayer + " existe en " + teamList.get(i).name
+							: " no existe en " + teamList.get(i).name);
 			System.out.println("----------------");
 
 		}
 
-		System.out.println((teamList[0].returnIfSamePlayers(teamList[1].players)
-				? teamList[0].name + " tiene los mismos jugadores que " + teamList[1].name
-				: teamList[0].name + " no tiene los mismos jugadores que " + teamList[1].name));
+		System.out.println((teamList.get(0).returnIfSamePlayers(teamList.get(1).players)
+				? teamList.get(0).name + " tiene los mismos jugadores que " + teamList.get(1).name
+				: teamList.get(0).name + " no tiene los mismos jugadores que " + teamList.get(1).name));
 
-		System.out.println((teamList[0].returnIfSameTeam(teamList[1])
-				? teamList[0].name + " es el mismo equipo que " + teamList[1].name
-				: teamList[0].name + " no es el mismo equipo que " + teamList[1].name));
+		System.out.println((teamList.get(0).returnIfSameTeam(teamList.get(1))
+				? teamList.get(0).name + " es el mismo equipo que " + teamList.get(1).name
+				: teamList.get(0).name + " no es el mismo equipo que " + teamList.get(1).name));
 
 	}
 
@@ -65,13 +68,13 @@ public class Main {
 		int numberOfPlayers = sc.nextInt();
 		sc.nextLine();
 
-		team.players = new String[numberOfPlayers];
+		team.players = new ArrayList<String>();
 
 		System.out.println("Introduce el nombre de los jugadores: ");
 
 		for (int i = 0; i < numberOfPlayers; i++) {
 			System.out.print("Jugador " + (i + 1) + ": ");
-			team.players[i] = sc.nextLine();
+			team.players.add(sc.nextLine());
 		}
 
 	}
