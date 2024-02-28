@@ -1,43 +1,40 @@
 import java.util.ArrayList;
 
 public class Computer {
-	private double precio;
+	private double price;
 	private Cpu cpu;
 	private GraphicCard graphicCard;
 	private MotherBoard motherBoard;
-	private Peripheral peripheral;
 	private ArrayList<Ram> ramList;
 	private ArrayList<Peripheral> peripheralList;
-	
+
 	public Computer() {
 		super();
 	}
 
-	public Computer(double precio, Cpu cpu, GraphicCard graphicCard, MotherBoard motherBoard, Peripheral peripheral,
-			ArrayList<Ram> ramList, ArrayList<Peripheral> peripheralList) {
+	public Computer(double precio, Cpu cpu, GraphicCard graphicCard, MotherBoard motherBoard, ArrayList<Ram> ramList,
+			ArrayList<Peripheral> peripheralList) {
 		super();
-		this.precio = precio;
+		this.price = precio;
 		this.cpu = cpu;
 		this.graphicCard = graphicCard;
 		this.motherBoard = motherBoard;
-		this.peripheral = peripheral;
 		this.ramList = ramList;
 		this.peripheralList = peripheralList;
 	}
 
 	@Override
 	public String toString() {
-		return "Computer [precio=" + precio + ", cpu=" + cpu + ", graphicCard=" + graphicCard + ", motherBoard="
-				+ motherBoard + ", peripheral=" + peripheral + ", ramList=" + ramList + ", peripheralList="
-				+ peripheralList + "]";
+		return "Computer [price=" + price + ", cpu=" + cpu + ", graphicCard=" + graphicCard + ", motherBoard="
+				+ motherBoard + ", ramList=" + ramList + ", peripheralList=" + peripheralList + "]";
 	}
 
-	public double getPrecio() {
-		return precio;
+	public double getPrice() {
+		return price;
 	}
 
-	public void setPrecio(double precio) {
-		this.precio = precio;
+	public void setPrice(double price) {
+		this.price = price;
 	}
 
 	public Cpu getCpu() {
@@ -64,14 +61,6 @@ public class Computer {
 		this.motherBoard = motherBoard;
 	}
 
-	public Peripheral getPeripheral() {
-		return peripheral;
-	}
-
-	public void setPeripheral(Peripheral peripheral) {
-		this.peripheral = peripheral;
-	}
-
 	public ArrayList<Ram> getRamList() {
 		return ramList;
 	}
@@ -87,8 +76,22 @@ public class Computer {
 	public void setPeripheralList(ArrayList<Peripheral> peripheralList) {
 		this.peripheralList = peripheralList;
 	}
-	
-	
-	
-	
+
+	public void totalComputerPrice() {
+		double peripheralListPrice = 0;
+		for (Peripheral p : peripheralList) {
+			peripheralListPrice += p.getPrice();
+		}
+
+		double ramListPrice = 0;
+		for (Ram r : ramList) {
+			ramListPrice += r.getPrice();
+		}
+
+		double componentsPrice = this.cpu.getPrice() + this.graphicCard.getPrice() + this.motherBoard.getPrice()
+				+ peripheralListPrice + ramListPrice;
+
+		this.setPrice(componentsPrice);
+	}
+
 }
