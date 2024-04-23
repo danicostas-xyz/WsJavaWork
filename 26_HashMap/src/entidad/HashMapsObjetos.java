@@ -53,14 +53,37 @@ public class HashMapsObjetos {
 	}
 
 	public static void crearPersona(HashMap<String, Persona> mapPersona) {
-		Persona persona = new Persona();
+		
 		System.out.print("- Nombre: ");
 		String sNombre = sc.nextLine();
-		persona.setNombre(sNombre);
+		int edad = 0;
+		int peso = 0;
+		
+		int opcion = 2;
+		
+		while (mapPersona.containsKey(sNombre.toLowerCase()) && opcion == 2) {
+			System.out.println("El nombre " + sNombre + " ya existe.");
+			System.out.println("Pulsa 1 para sobreescribir a " + sNombre);
+			System.out.println("Pulsa 2 para usar otro nombre");
+			
+			opcion = Integer.parseInt(sc.nextLine());
+			
+			if (opcion == 2) {
+				System.out.print("- Nombre: ");
+				sNombre = sc.nextLine();
+			}	
+		} 
+		
 		System.out.print("- Edad: ");
-		persona.setEdad(Integer.parseInt(sc.nextLine()));
+		edad = Integer.parseInt(sc.nextLine());
 		System.out.print("- Peso: ");
-		persona.setPeso(Integer.parseInt(sc.nextLine()));
+		peso = Integer.parseInt(sc.nextLine());
+		
+		Persona persona = new Persona();
+		
+		persona.setNombre(sNombre);	
+		persona.setEdad(edad);
+		persona.setPeso(peso);
 
 		mapPersona.put(sNombre.toLowerCase(), persona);
 
@@ -68,9 +91,10 @@ public class HashMapsObjetos {
 
 	private static void mostrarPersonas(HashMap<String, Persona> mapPersona) {
 		mapPersona.forEach((k, v) -> {
-			System.out.println(k + ":");
+			System.out.println("");
+			System.out.println((capitalize(k)) + ":");
 			System.out.println("-----------");
-			System.out.println("- Nombre: " + v.getNombre());
+			System.out.println("- Nombre: " + capitalize(v.getNombre()));
 			System.out.println("- Edad: " + v.getEdad());
 			System.out.println("- Peso: " + v.getPeso());
 		});
@@ -81,7 +105,7 @@ public class HashMapsObjetos {
 		String nombre = sc.nextLine();
 		if (mapPersona.containsKey(nombre.toLowerCase())) {
 			Persona p = mapPersona.get(nombre.toLowerCase());
-			System.out.println("Datos de " + nombre);
+			System.out.println("Datos de " + capitalize(nombre));
 			System.out.println("- Nombre: " + p.getNombre());
 			System.out.println("- Edad: " + p.getEdad());
 			System.out.println("- Peso: " + p.getPeso());
@@ -91,5 +115,13 @@ public class HashMapsObjetos {
 		}
 
 	}
+	
+	public static String capitalize(String texto) {
+        if (texto == null || texto.isEmpty()) {
+            return texto;
+        } else {
+            return texto.substring(0, 1).toUpperCase() + texto.substring(1).toLowerCase();
+        }
+    }
 
 }
