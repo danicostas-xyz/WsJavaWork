@@ -4,7 +4,7 @@ public class Empleado {
 	/**
 	 * Atributo estático de la clase Empleado que sirve para que a cada instancia se
 	 * le asocie un identificador único automático, incrementado en 1 cada vez que
-	 * se instancie un nuevo objeto
+	 * se instancie un nuevo objeto.
 	 */
 	static int contadorId = 0;
 
