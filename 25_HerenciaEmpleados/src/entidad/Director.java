@@ -6,9 +6,17 @@ public class Director extends Empleado {
 
 	// --- Atributos ---
 
-	private ArrayList<Empleado> listaEmpleadosDirector = new ArrayList<>();
+	private ArrayList<Empleado> listaEmpleadosDirector;
 	private double incentivo = this.calcularIncentivos();
 	private double salarioTotal = this.getSueldoBase() + incentivo;
+
+	// --- Constructores ---
+
+	public Director() {
+		super();
+	}
+	
+	
 
 	// --- Getters & Setters ---
 
@@ -48,11 +56,9 @@ public class Director extends Empleado {
 
 	private double calcularIncentivos() {
 		double incentivo = 0;
-
-		for (Empleado c : listaEmpleadosDirector) {
+		for (Empleado e : listaEmpleadosDirector) {
 			incentivo += 100;
 		}
-
 		return incentivo;
 	}
 
